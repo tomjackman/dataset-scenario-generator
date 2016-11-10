@@ -21,7 +21,10 @@ function generateScenario(config) {
     stepInterval: 5000,
     percentageOnline: 100,
     percentageUpdate: 20,
-    schema: "workorder"});
+    schema: "workorder",
+    schemaOptions: {}
+  }
+  );
 
   winston.info('Started Generator...');
   winston.info('Specified Configuration:', config);
@@ -43,7 +46,7 @@ function generateScenario(config) {
 
       if (scenario.steps[0] === undefined || updateState) {
         // a change to the dataset will be made on this step
-        step = generateStep(onlineState, config.schema);
+        step = generateStep(onlineState, config.schema, config.schemaOptions);
       } else {
         // a step that doesn't perform updates should just use the dataset from the last step (as no updates to the dataset take place)
         step = _.clone(scenario.steps[(i - 1)]);
@@ -62,11 +65,11 @@ function generateScenario(config) {
 * @param {boolean} onlineState - the network state for this step (online/offline)
 * @return {object} - the step object
 */
-function generateStep(onlineState, schema) {
+function generateStep(onlineState, schema, schemaOptions) {
 
   // update the dataset using new data with the defined scheme
   var schemaPath = '../schemas/' + schema + '.js';
-  var generatedDataset = require(schemaPath).getSchema();
+  var generatedDataset = require(schemaPath).getSchema(schemaOptions);
 
   // Get a sha1 hash of the dataset
   var sha1_hash = sha1(JSON.stringify(generatedDataset));

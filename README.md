@@ -1,13 +1,13 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/tommyj1994/dataset-scenario-generator/be70b8b9d1fb05986d9bc883735a8cf29b612829/badge.svg)](https://snyk.io/test/github/tommyj1994/dataset-scenario-generator/be70b8b9d1fb05986d9bc883735a8cf29b612829)
 # Dataset Scenario Generator
 ## Description
-This tools allows you to create **scenarios** and **steps** for datasets using a set of configuration options. Each scenario contains a list of steps that can perform changes on the dataset over the lifetime of the scenario.
+This tools allows you to create **scenarios** and **steps** for datasets using a set of configuration options. Each scenario contains a list of steps that can perform changes on the dataset over the lifetime of the scenario. Datasets are generated using template schemas defined in `schemas/`. These can be configured to specify exact values for certain key fields, eg id fields.
 
 ### Scenarios
 A scenario has:
-* a name
-* a list of steps
-* a time interval for running through steps
+* label - a name
+* steps - a list of steps
+* stepInterval - a time interval for running through steps
 
 ### Steps
 Each step has:
@@ -38,12 +38,18 @@ var generator = require('dataset-scenario-generator');
 
 Then setup the configuration for the generator:
 ```
+// each dataset schema can be assigned a number of non changing fields over the lifetime of a scenario.
+var schemaOptions = {id: "abcd1234",
+                     workflowId:"5678efgh",
+                     assignee: "trever"};
+
 var config = { "label": "test scenario",
                "stepInterval": 5000,
                "numOfSteps": 20,
                "percentageOnline": 50,
                "percentageUpdate": 50,
-               "schema": "workorder"}
+               "schema": "workorder",
+               "schemaOptions": schemaOptions}
 ```
 Options
 * label - a name for the scenario.
