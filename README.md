@@ -11,10 +11,10 @@ A scenario has:
 
 ### Steps
 Each step has:
-* the dataset itself
-* a sha1 of the dataset
-* a flag to mimic an offline state for the step
-* a flag to state whether or not the step performs an update on the dataset
+* dataset - the dataset itself
+* sha1 - a sha1 of the dataset
+* online - a flag to mimic an offline state for the step
+* dataset_update - a flag to state whether or not the step performs an update on the dataset
 
 ## Installation
 Clone the repo and install dependencies using:
@@ -122,4 +122,8 @@ Sample Output (With 2 steps):
 
 ### Working With Scenarios
 
-Create a local dataset for the object.
+* Create a blank local dataset.
+* Generate a scenario.
+* Create a function that runs repeatedly on an interval set in the scenario configuration. This will run through the steps in a scenario.
+* At each interval step, update the local dataset to the dataset defined in the scenarios step (if `step.dataset_update` is set to `true`).
+* Add handling for steps that are done offline by checking if `step.online` is set to `false`.
