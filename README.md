@@ -28,7 +28,7 @@ Then create a symbolic link:
 npm link
 ```
 
-## Usage
+## Basic Usage
 In your application require the module:
 
 ```
@@ -67,53 +67,112 @@ And the scenario will be generated:
 console.log(JSON.stringify(scenario));
 ```
 
-Sample Output (With 2 steps):
+Sample Output (With 5 steps):
 
 ```
 {
   "label": "test scenario",
-  "stepInterval": 5000,
+  "stepInterval": 500,
+  "numOfSteps": 5,
   "steps": [
     {
-      "id": "f43f4ff3f",
       "online": true,
-      "sha1": "bf95da4cae3216c876b5298cbab4f9f15505ec8a",
-      "dataset_update": false,
+      "sha1": "77fb3ed53482484a12dcfb38168e0e9b84b5c90c",
+      "dataset_update": true,
       "dataset": {
         "id": "rkX1fdSH",
         "workflowId": "SyVXyMuSr",
         "assignee": "rkX1fdSH",
-        "type": "Systems Design",
-        "title": "Footpath in disrepair",
+        "type": "Job Order",
+        "title": "XTRACT",
         "status": "New",
-        "startTimestamp": 1478706989091,
-        "address": "851 Upham Center",
+        "startTimestamp": 1478786949940,
+        "address": "8 Schmedeman Point",
         "location": [
           49.287227,
           -123.141489
         ],
-        "summary": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet."
+        "summary": "Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend."
       }
     },
     {
-      "id": "f43f4ff3f",
       "online": true,
-      "sha1": "bf95da4cae3216c876b5298cbab4f9f15505ec8a",
+      "sha1": "77fb3ed53482484a12dcfb38168e0e9b84b5c90c",
       "dataset_update": false,
       "dataset": {
         "id": "rkX1fdSH",
         "workflowId": "SyVXyMuSr",
         "assignee": "rkX1fdSH",
-        "type": "Systems Design",
-        "title": "Footpath in disrepair",
+        "type": "Job Order",
+        "title": "XTRACT",
         "status": "New",
-        "startTimestamp": 1478706989091,
-        "address": "851 Upham Center",
+        "startTimestamp": 1478786949940,
+        "address": "8 Schmedeman Point",
         "location": [
           49.287227,
           -123.141489
         ],
-        "summary": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet."
+        "summary": "Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend."
+      }
+    },
+    {
+      "online": false,
+      "sha1": "3051332880d73f5017210284980299c5a5848ea8",
+      "dataset_update": true,
+      "dataset": {
+        "id": "rkX1fdSH",
+        "workflowId": "SyVXyMuSr",
+        "assignee": "rkX1fdSH",
+        "type": "Job Order",
+        "title": "DQL",
+        "status": "New",
+        "startTimestamp": 1478786949942,
+        "address": "39 Hermina Trail",
+        "location": [
+          49.287227,
+          -123.141489
+        ],
+        "summary": "Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat."
+      }
+    },
+    {
+      "online": false,
+      "sha1": "747ca82fde447b63a2fce324c223f2282eebea10",
+      "dataset_update": true,
+      "dataset": {
+        "id": "rkX1fdSH",
+        "workflowId": "SyVXyMuSr",
+        "assignee": "rkX1fdSH",
+        "type": "Job Order",
+        "title": "Estate Planning",
+        "status": "New",
+        "startTimestamp": 1478786949943,
+        "address": "302 Kinsman Crossing",
+        "location": [
+          49.287227,
+          -123.141489
+        ],
+        "summary": "In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi."
+      }
+    },
+    {
+      "online": false,
+      "sha1": "747ca82fde447b63a2fce324c223f2282eebea10",
+      "dataset_update": false,
+      "dataset": {
+        "id": "rkX1fdSH",
+        "workflowId": "SyVXyMuSr",
+        "assignee": "rkX1fdSH",
+        "type": "Job Order",
+        "title": "Estate Planning",
+        "status": "New",
+        "startTimestamp": 1478786949943,
+        "address": "302 Kinsman Crossing",
+        "location": [
+          49.287227,
+          -123.141489
+        ],
+        "summary": "In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi."
       }
     }
   ]
@@ -122,7 +181,7 @@ Sample Output (With 2 steps):
 
 ### Working With Scenarios
 
-* Create a blank local dataset.
+* Create a empty local dataset to be used with sync.
 * Generate a scenario.
 * Create a function that runs repeatedly on an interval set in the scenario configuration. This will run through the steps in a scenario.
 * At each interval step, update the local dataset to the dataset defined in the scenarios step (if `step.dataset_update` is set to `true`).

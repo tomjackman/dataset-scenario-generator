@@ -64,8 +64,10 @@ function generateScenario(config) {
 * @return {object} - the step object
 */
 function generateStep(onlineState) {
-  // generate a random number between 1 and 100
-  var rand = _.random(1, 100);
+  // generate random numbers between 1 and 190 to pickup test data
+  var rand1 = _.random(1, 190);
+  var rand2 = _.random(1, 190);
+  var rand3 = _.random(1, 190);
 
   // update the dataset using new data
   var dataset = {
@@ -73,15 +75,15 @@ function generateStep(onlineState) {
     workflowId: 'SyVXyMuSr',
     assignee: 'rkX1fdSH',
     type: 'Job Order',
-    title: MOCK_DATA[rand].title,
+    title: MOCK_DATA[rand1].title,
     status: 'New',
     startTimestamp: new Date().getTime(),
-    address: MOCK_DATA[rand].address,
+    address: MOCK_DATA[rand2].address,
     location: [
       49.287227,
       -123.141489
     ],
-    summary: MOCK_DATA[rand].summary
+    summary: MOCK_DATA[rand3].summary
   };
 
   // Get a sha1 hash of the dataset
