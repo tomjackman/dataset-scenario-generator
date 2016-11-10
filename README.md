@@ -84,103 +84,103 @@ Sample Output (With 5 steps):
   "numOfSteps": 5,
   "steps": [
     {
-      "online": true,
-      "sha1": "3af1764f038b4f55aeb0d216f4cab8d8392fe479",
+      "online": false,
+      "sha1": "03bc2a55d5fefd0b1fca872d10ecf1684b319914",
       "dataset_update": true,
       "dataset": {
-        "id": "618240ad",
-        "workflowId": "350a09c7",
-        "assignee": "65440c46",
+        "id": "abcd1234",
+        "workflowId": "5678efgh",
+        "assignee": "trever",
         "type": "Job Order",
-        "title": "hel",
+        "title": "caguke",
         "status": "New",
-        "startTimestamp": "2029-04-01T22:58:55.863Z",
-        "address": "126 Jupkeh Place",
+        "startTimestamp": "2065-04-13T15:51:30.374Z",
+        "address": "864 Upihij Pass",
         "location": [
-          -85.6390012,
-          14.0938828
+          57.6766859,
+          20.3997629
         ],
-        "summary": "Difuh baawuci uveomaso ewa igvejded partadni ragowov azjuguz agdat gi gupe orcucsa imoruesu go vim unu jar cup oftu kah fev lac tezvog kucjeham dako se gupmunhad neumo lolihfa buvesafof."
+        "summary": "Zig du fazlazac ori fezva vile nig pevba okbin ez inijefe vuk gitoze enisodu kojih viwlamwic feza moveva reg gitsajep fuwekihe eswu fodrug kozi tasdepdam ros niftatje norbohgu vi co."
       }
     },
     {
       "online": true,
-      "sha1": "3af1764f038b4f55aeb0d216f4cab8d8392fe479",
+      "sha1": "4c774a8a674a955c0368286cd8ef4dc424d6ca38",
+      "dataset_update": true,
+      "dataset": {
+        "id": "abcd1234",
+        "workflowId": "5678efgh",
+        "assignee": "trever",
+        "type": "Job Order",
+        "title": "indetgul",
+        "status": "New",
+        "startTimestamp": "2055-11-26T12:44:26.017Z",
+        "address": "1384 Foppa Parkway",
+        "location": [
+          100.753955,
+          69.0433111
+        ],
+        "summary": "Roisre bo amocecu savjutul sawho numeer ej tejceh sebeate cu bowosek ewa moge laet sasguosa ed abahiw im udvutpic jellev ammeted po imuso egofa dakor pujgakgem tawrakze jazev dej mom."
+      }
+    },
+    {
+      "online": true,
+      "sha1": "4c774a8a674a955c0368286cd8ef4dc424d6ca38",
       "dataset_update": false,
       "dataset": {
-        "id": "618240ad",
-        "workflowId": "350a09c7",
-        "assignee": "65440c46",
+        "id": "abcd1234",
+        "workflowId": "5678efgh",
+        "assignee": "trever",
         "type": "Job Order",
-        "title": "hel",
+        "title": "indetgul",
         "status": "New",
-        "startTimestamp": "2029-04-01T22:58:55.863Z",
-        "address": "126 Jupkeh Place",
+        "startTimestamp": "2055-11-26T12:44:26.017Z",
+        "address": "1384 Foppa Parkway",
         "location": [
-          -85.6390012,
-          14.0938828
+          100.753955,
+          69.0433111
         ],
-        "summary": "Difuh baawuci uveomaso ewa igvejded partadni ragowov azjuguz agdat gi gupe orcucsa imoruesu go vim unu jar cup oftu kah fev lac tezvog kucjeham dako se gupmunhad neumo lolihfa buvesafof."
+        "summary": "Roisre bo amocecu savjutul sawho numeer ej tejceh sebeate cu bowosek ewa moge laet sasguosa ed abahiw im udvutpic jellev ammeted po imuso egofa dakor pujgakgem tawrakze jazev dej mom."
       }
     },
     {
-      "online": false,
-      "sha1": "ee110ae5a51aba8df4c36e7f75aab3daa2062a77",
+      "online": true,
+      "sha1": "28057553012605ab7ce3b7c3c96b398be374f496",
       "dataset_update": true,
       "dataset": {
-        "id": "c7f9977c",
-        "workflowId": "c4f47267",
-        "assignee": "03bebade",
+        "id": "abcd1234",
+        "workflowId": "5678efgh",
+        "assignee": "trever",
         "type": "Job Order",
-        "title": "humewa",
+        "title": "coozali",
         "status": "New",
-        "startTimestamp": "2093-09-27T07:46:08.918Z",
-        "address": "532 Rulaz Boulevard",
+        "startTimestamp": "2106-02-15T04:17:55.605Z",
+        "address": "322 Akifin Path",
         "location": [
-          -141.5284867,
-          -42.4719954
+          122.6938838,
+          54.834368
         ],
-        "summary": "Gahnad zo ukose pifop ziapcel fafne vos amoko jos dulob nihif oj ciban afuva tubevel wa reh witmiat ojumepi ku cuw sijpop owa pe debudgi afmo ge volacuab wewgandif ak."
+        "summary": "Gor ara omwalal ehe atiiwi wavevuod kovihit hawbelhuh ke keebeval mesmap rojimub buuz ido eze gezitum pepfe tethe cu tocona kezugpe vi saodi dug ronu kerez zo illur lur wazjurne."
       }
     },
     {
       "online": false,
-      "sha1": "a11516e8239c4a0f444fd1b573d9f164f93c04af",
+      "sha1": "d0b69c0c4e91d419c36ec751ab7192151e689901",
       "dataset_update": true,
       "dataset": {
-        "id": "5ee9dfc9",
-        "workflowId": "1097737a",
-        "assignee": "a4819573",
+        "id": "abcd1234",
+        "workflowId": "5678efgh",
+        "assignee": "trever",
         "type": "Job Order",
-        "title": "akorin",
+        "title": "mimlapa",
         "status": "New",
-        "startTimestamp": "2051-01-09T06:36:18.819Z",
-        "address": "82 Soak Loop",
+        "startTimestamp": "2041-06-15T02:59:48.381Z",
+        "address": "1632 Lolpa Glen",
         "location": [
-          -144.798206,
-          -47.7751872
+          -139.6641065,
+          9.5004314
         ],
-        "summary": "Himmetal walow rafaded awoavih luwozo sudaom pamob zueru ta ifi wagterduh robbi fomez rec gen nu voak daonze onuwe fuwetu et dueme jezsucif pinub kid minse cipmaw sig udnid ace."
-      }
-    },
-    {
-      "online": false,
-      "sha1": "a11516e8239c4a0f444fd1b573d9f164f93c04af",
-      "dataset_update": false,
-      "dataset": {
-        "id": "5ee9dfc9",
-        "workflowId": "1097737a",
-        "assignee": "a4819573",
-        "type": "Job Order",
-        "title": "akorin",
-        "status": "New",
-        "startTimestamp": "2051-01-09T06:36:18.819Z",
-        "address": "82 Soak Loop",
-        "location": [
-          -144.798206,
-          -47.7751872
-        ],
-        "summary": "Himmetal walow rafaded awoavih luwozo sudaom pamob zueru ta ifi wagterduh robbi fomez rec gen nu voak daonze onuwe fuwetu et dueme jezsucif pinub kid minse cipmaw sig udnid ace."
+        "summary": "Ecovidep suso fok kabus dupofop efubaoru kevheici maf fi ezeku we ludi umwe eg omu uv viv sep ho gihow vo capug winsetdo fegvi nezewo wal ha bi cimdow ugwopoki."
       }
     }
   ],
