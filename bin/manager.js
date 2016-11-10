@@ -16,6 +16,7 @@ var MOCK_DATA = require('../config/mock_data.json');
 */
 function generateScenario(config) {
 
+  // setup default config values
   _.defaults(config, {label: "Untitled Scenario",
     numOfSteps: 10,
     stepInterval: 5000,
@@ -28,6 +29,7 @@ function generateScenario(config) {
   var onlineState = false;
   var updateState = false;
 
+  // create scenario skeleton
   var scenario = {"label": config.label, "stepInterval": config.stepInterval, "steps": []};
 
 // updates to the dataset will take place in this scenario
@@ -39,15 +41,12 @@ function generateScenario(config) {
       // set whether this step involves a change to the data set
       updateState = getWeightingResult(config.percentageUpdate);
 
-      if (updateState) {
+      if (scenario.steps[0] === undefined || updateState) {
         // a change to the dataset will be made on this step
-        step = generateStep(onlineState);
-      } else if (scenario.steps[i - 1] === undefined) {
-        // first step must create a dataset even its set to not perform a dataset change
         step = generateStep(onlineState);
       } else {
         // a step that doesn't perform updates should just use the dataset from the last step (as no updates to the dataset take place)
-        step = scenario.steps[i - 1];
+        step = _.clone(scenario.steps[(i - 1)]);
         // this step doesn't perform an update to the dataset
         step.dataset_update = false;
       }
@@ -66,9 +65,9 @@ function generateScenario(config) {
 */
 function generateStep(onlineState) {
   // generate a random number between 1 and 100
-  var rand = Math.floor((Math.random()*100) + 1);
+  var rand = _.random(1, 100);
 
-  // update the dataset
+  // update the dataset using new data
   var dataset = {
     id: "rkX1fdSH",
     workflowId: 'SyVXyMuSr',
@@ -109,8 +108,8 @@ function getWeightingResult(percentage) {
     return false;
   }
 
-  // generate a random number between 1 and 100
-  var rand = Math.floor((Math.random()*100) + 1);
+  // generate a random number between 0 and 100
+  var rand = _.random(0, 100);
 
   // if the random number is in the threshold, the state is given a true value, otherwise its false
   if (rand < percentage) {
