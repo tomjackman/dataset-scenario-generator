@@ -30,7 +30,7 @@ function generateScenario(config) {
   var updateState = false;
 
   // create scenario skeleton
-  var scenario = {"label": config.label, "stepInterval": config.stepInterval, "steps": []};
+  var scenario = {"label": config.label, "stepInterval": config.stepInterval, "numOfSteps": config.numOfSteps, "steps": []};
 
 // updates to the dataset will take place in this scenario
   if (config.percentageUpdate > 0) {
