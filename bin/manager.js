@@ -1,5 +1,6 @@
 var sha1 = require('sha1');
 var winston = require('winston');
+var _ = require('underscore');
 var MOCK_DATA = require('../config/mock_data.json');
 
 /**
@@ -15,37 +16,37 @@ var MOCK_DATA = require('../config/mock_data.json');
 */
 function generateScenario(config) {
 
+  _.defaults(config, {label: "Untitled Scenario",
+    numOfSteps: 10,
+    stepInterval: 5000,
+    percentageOnline: 100,
+    percentageUpdate: 20});
+
   winston.info('Started Generator...');
   winston.info('Specified Configuration:', config);
-
-  var label = config.label || "Untitled Scenario";
-  var numOfSteps = config.numOfSteps || 10;
-  var stepInterval = config.stepInterval || 5000;
-  var percentageOnline = config.percentageOnline || 100;
-  var percentageUpdate = config.percentageUpdate || 20;
 
   var onlineState = false;
   var updateState = false;
 
-  var scenario = {"label": label, "stepInterval": stepInterval, "steps": []};
+  var scenario = {"label": config.label, "stepInterval": config.stepInterval, "steps": []};
 
 // updates to the dataset will take place in this scenario
-  if (percentageUpdate > 0) {
-    for(var i = 0; i < numOfSteps; i++) {
+  if (config.percentageUpdate > 0) {
+    for(var i = 0; i < config.numOfSteps; i++) {
       var step = {};
       // set whether this change will happen when online
-      onlineState = getWeightingResult(percentageOnline);
+      onlineState = getWeightingResult(config.percentageOnline);
       // set whether this step involves a change to the data set
-      updateState = getWeightingResult(percentageUpdate);
+      updateState = getWeightingResult(config.percentageUpdate);
 
-      // a change to the dataset will be made on this step
       if (updateState) {
+        // a change to the dataset will be made on this step
         step = generateStep(onlineState);
       } else if (scenario.steps[i - 1] === undefined) {
-        // first step must create a dataset
+        // first step must create a dataset even its set to not perform a dataset change
         step = generateStep(onlineState);
       } else {
-        // a step that doesn't perform updates should just use the dataset from the last step (as no updates to the dataeset take place)
+        // a step that doesn't perform updates should just use the dataset from the last step (as no updates to the dataset take place)
         step = scenario.steps[i - 1];
         // this step doesn't perform an update to the dataset
         step.dataset_update = false;
