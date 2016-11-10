@@ -2,13 +2,14 @@
   "name": "dataset-scenario-generator",
   "version": "0.0.1",
   "description": "",
-  "main": "bin/manager.js",
+  "main": "bin/generator.js",
   "scripts": {
     "test": "test"
   },
   "author": "tjackman",
   "license": "ISC",
   "devDependencies": {
+    "chance": "^1.0.4",
     "sha1": "^1.1.1",
     "underscore": "^1.8.3",
     "winston": "^2.3.0"

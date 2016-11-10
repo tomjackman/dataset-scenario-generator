@@ -42,7 +42,8 @@ var config = { "label": "test scenario",
                "stepInterval": 5000,
                "numOfSteps": 20,
                "percentageOnline": 50,
-               "percentageUpdate": 50 }
+               "percentageUpdate": 50,
+               "schema": "workorder"}
 ```
 Options
 * label - a name for the scenario.
@@ -50,6 +51,7 @@ Options
 * numOfSteps - the number of steps in the scenario. [Default: 10]
 * percentageOnline - the percentage of steps that should be set with an online (network connected) flag. [Default: 100]
 * percentageUpdate - the percentage of steps that should perform an update to the dataset. [Default: 20]
+* schema - the dataset scheme to use as defined in `/schemas`. [Default: 20]
 
 An *update* percentage of 20% means that roughly 20% of the steps in the scenario should perform updates on the dataset.
 
@@ -77,105 +79,106 @@ Sample Output (With 5 steps):
   "steps": [
     {
       "online": true,
-      "sha1": "77fb3ed53482484a12dcfb38168e0e9b84b5c90c",
+      "sha1": "3af1764f038b4f55aeb0d216f4cab8d8392fe479",
       "dataset_update": true,
       "dataset": {
-        "id": "rkX1fdSH",
-        "workflowId": "SyVXyMuSr",
-        "assignee": "rkX1fdSH",
+        "id": "618240ad",
+        "workflowId": "350a09c7",
+        "assignee": "65440c46",
         "type": "Job Order",
-        "title": "XTRACT",
+        "title": "hel",
         "status": "New",
-        "startTimestamp": 1478786949940,
-        "address": "8 Schmedeman Point",
+        "startTimestamp": "2029-04-01T22:58:55.863Z",
+        "address": "126 Jupkeh Place",
         "location": [
-          49.287227,
-          -123.141489
+          -85.6390012,
+          14.0938828
         ],
-        "summary": "Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend."
+        "summary": "Difuh baawuci uveomaso ewa igvejded partadni ragowov azjuguz agdat gi gupe orcucsa imoruesu go vim unu jar cup oftu kah fev lac tezvog kucjeham dako se gupmunhad neumo lolihfa buvesafof."
       }
     },
     {
       "online": true,
-      "sha1": "77fb3ed53482484a12dcfb38168e0e9b84b5c90c",
+      "sha1": "3af1764f038b4f55aeb0d216f4cab8d8392fe479",
       "dataset_update": false,
       "dataset": {
-        "id": "rkX1fdSH",
-        "workflowId": "SyVXyMuSr",
-        "assignee": "rkX1fdSH",
+        "id": "618240ad",
+        "workflowId": "350a09c7",
+        "assignee": "65440c46",
         "type": "Job Order",
-        "title": "XTRACT",
+        "title": "hel",
         "status": "New",
-        "startTimestamp": 1478786949940,
-        "address": "8 Schmedeman Point",
+        "startTimestamp": "2029-04-01T22:58:55.863Z",
+        "address": "126 Jupkeh Place",
         "location": [
-          49.287227,
-          -123.141489
+          -85.6390012,
+          14.0938828
         ],
-        "summary": "Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend."
+        "summary": "Difuh baawuci uveomaso ewa igvejded partadni ragowov azjuguz agdat gi gupe orcucsa imoruesu go vim unu jar cup oftu kah fev lac tezvog kucjeham dako se gupmunhad neumo lolihfa buvesafof."
       }
     },
     {
       "online": false,
-      "sha1": "3051332880d73f5017210284980299c5a5848ea8",
+      "sha1": "ee110ae5a51aba8df4c36e7f75aab3daa2062a77",
       "dataset_update": true,
       "dataset": {
-        "id": "rkX1fdSH",
-        "workflowId": "SyVXyMuSr",
-        "assignee": "rkX1fdSH",
+        "id": "c7f9977c",
+        "workflowId": "c4f47267",
+        "assignee": "03bebade",
         "type": "Job Order",
-        "title": "DQL",
+        "title": "humewa",
         "status": "New",
-        "startTimestamp": 1478786949942,
-        "address": "39 Hermina Trail",
+        "startTimestamp": "2093-09-27T07:46:08.918Z",
+        "address": "532 Rulaz Boulevard",
         "location": [
-          49.287227,
-          -123.141489
+          -141.5284867,
+          -42.4719954
         ],
-        "summary": "Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat."
+        "summary": "Gahnad zo ukose pifop ziapcel fafne vos amoko jos dulob nihif oj ciban afuva tubevel wa reh witmiat ojumepi ku cuw sijpop owa pe debudgi afmo ge volacuab wewgandif ak."
       }
     },
     {
       "online": false,
-      "sha1": "747ca82fde447b63a2fce324c223f2282eebea10",
+      "sha1": "a11516e8239c4a0f444fd1b573d9f164f93c04af",
       "dataset_update": true,
       "dataset": {
-        "id": "rkX1fdSH",
-        "workflowId": "SyVXyMuSr",
-        "assignee": "rkX1fdSH",
+        "id": "5ee9dfc9",
+        "workflowId": "1097737a",
+        "assignee": "a4819573",
         "type": "Job Order",
-        "title": "Estate Planning",
+        "title": "akorin",
         "status": "New",
-        "startTimestamp": 1478786949943,
-        "address": "302 Kinsman Crossing",
+        "startTimestamp": "2051-01-09T06:36:18.819Z",
+        "address": "82 Soak Loop",
         "location": [
-          49.287227,
-          -123.141489
+          -144.798206,
+          -47.7751872
         ],
-        "summary": "In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi."
+        "summary": "Himmetal walow rafaded awoavih luwozo sudaom pamob zueru ta ifi wagterduh robbi fomez rec gen nu voak daonze onuwe fuwetu et dueme jezsucif pinub kid minse cipmaw sig udnid ace."
       }
     },
     {
       "online": false,
-      "sha1": "747ca82fde447b63a2fce324c223f2282eebea10",
+      "sha1": "a11516e8239c4a0f444fd1b573d9f164f93c04af",
       "dataset_update": false,
       "dataset": {
-        "id": "rkX1fdSH",
-        "workflowId": "SyVXyMuSr",
-        "assignee": "rkX1fdSH",
+        "id": "5ee9dfc9",
+        "workflowId": "1097737a",
+        "assignee": "a4819573",
         "type": "Job Order",
-        "title": "Estate Planning",
+        "title": "akorin",
         "status": "New",
-        "startTimestamp": 1478786949943,
-        "address": "302 Kinsman Crossing",
+        "startTimestamp": "2051-01-09T06:36:18.819Z",
+        "address": "82 Soak Loop",
         "location": [
-          49.287227,
-          -123.141489
+          -144.798206,
+          -47.7751872
         ],
-        "summary": "In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi."
+        "summary": "Himmetal walow rafaded awoavih luwozo sudaom pamob zueru ta ifi wagterduh robbi fomez rec gen nu voak daonze onuwe fuwetu et dueme jezsucif pinub kid minse cipmaw sig udnid ace."
       }
     }
-  ]
+  ],
+  "schema": "workorder"
 }
 ```
 

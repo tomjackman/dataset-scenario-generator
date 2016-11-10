@@ -1,7 +1,6 @@
 var sha1 = require('sha1');
 var winston = require('winston');
 var _ = require('underscore');
-var MOCK_DATA = require('../config/mock_data.json');
 
 /**
 * Generate a scenario using a set of configuration options.
@@ -21,7 +20,8 @@ function generateScenario(config) {
     numOfSteps: 10,
     stepInterval: 5000,
     percentageOnline: 100,
-    percentageUpdate: 20});
+    percentageUpdate: 20,
+    schema: "workorder"});
 
   winston.info('Started Generator...');
   winston.info('Specified Configuration:', config);
@@ -30,7 +30,7 @@ function generateScenario(config) {
   var updateState = false;
 
   // create scenario skeleton
-  var scenario = {"label": config.label, "stepInterval": config.stepInterval, "numOfSteps": config.numOfSteps, "steps": []};
+  var scenario = {"label": config.label, "stepInterval": config.stepInterval, "numOfSteps": config.numOfSteps, "steps": [], "schema": config.schema};
 
 // updates to the dataset will take place in this scenario
   if (config.percentageUpdate > 0) {
@@ -43,7 +43,7 @@ function generateScenario(config) {
 
       if (scenario.steps[0] === undefined || updateState) {
         // a change to the dataset will be made on this step
-        step = generateStep(onlineState);
+        step = generateStep(onlineState, config.schema);
       } else {
         // a step that doesn't perform updates should just use the dataset from the last step (as no updates to the dataset take place)
         step = _.clone(scenario.steps[(i - 1)]);
@@ -55,7 +55,6 @@ function generateScenario(config) {
   }
   winston.info('Scenario Created with', scenario.steps.length, 'Steps.');
   return scenario;
-
 }
 
 /**
@@ -63,37 +62,20 @@ function generateScenario(config) {
 * @param {boolean} onlineState - the network state for this step (online/offline)
 * @return {object} - the step object
 */
-function generateStep(onlineState) {
-  // generate random numbers between 1 and 190 to pickup test data
-  var rand1 = _.random(1, 190);
-  var rand2 = _.random(1, 190);
-  var rand3 = _.random(1, 190);
+function generateStep(onlineState, schema) {
 
-  // update the dataset using new data
-  var dataset = {
-    id: "rkX1fdSH",
-    workflowId: 'SyVXyMuSr',
-    assignee: 'rkX1fdSH',
-    type: 'Job Order',
-    title: MOCK_DATA[rand1].title,
-    status: 'New',
-    startTimestamp: new Date().getTime(),
-    address: MOCK_DATA[rand2].address,
-    location: [
-      49.287227,
-      -123.141489
-    ],
-    summary: MOCK_DATA[rand3].summary
-  };
+  // update the dataset using new data with the defined scheme
+  var schemaPath = '../schemas/' + schema + '.js';
+  var generatedDataset = require(schemaPath).getSchema();
 
   // Get a sha1 hash of the dataset
-  var sha1_hash = sha1(JSON.stringify(dataset));
+  var sha1_hash = sha1(JSON.stringify(generatedDataset));
 
   return {
     "online": onlineState,
     "sha1": sha1_hash,
     "dataset_update": true,
-    "dataset": dataset
+    "dataset": generatedDataset
   };
 }
 
