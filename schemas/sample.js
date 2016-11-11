@@ -8,15 +8,18 @@ function getSchema(options) {
 
   // fallback to generated values if no options are passed in via parameters
   _.defaults(options, {
-    id: chance.hash({length: 8})
+    id: chance.hash({length: 8}),
+    title: chance.word(),
+    status: chance.weighted(['New'], [10]),
+    startTimestamp: chance.date()
   }
   );
 
   return {
     id: options.id,
-    title: chance.word(),
-    status: chance.weighted(['New'], [10]),
-    startTimestamp: chance.date(),
+    title: options.title,
+    status: options.status,
+    startTimestamp: options.startTimestamp
   };
 }
 
