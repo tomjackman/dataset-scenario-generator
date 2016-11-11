@@ -1,9 +1,11 @@
-var sha1 = require('sha1');
 var winston = require('winston');
 var _ = require('underscore');
+// hashing of Datasets
+var sha1 = require('sha1');
 
 /**
 * Generate a scenario using a set of configuration options.
+* Scenarios will contain a list of steps that can perform operations on a dataset created off of a defined schema..
 *
 * @param config
 * @param config.label - the name of the scenario
@@ -11,6 +13,8 @@ var _ = require('underscore');
 * @param config.numOfSteps - the number of steps to add to the scenario
 * @param config.percentageOnline - the percentage of steps that should be carried out in an 'online' state [0-100]
 * @param config.percentageUpdate - the percentage of steps that should carry out updates along with listing/reading [0-100]
+* @param config.schema - the schema to create a dataset upon
+* @param config.schemaOptions - configurations options for the schema
 * @return {object} - An object containing all the steps for a scenario.
 */
 function generateScenario(config) {
@@ -33,7 +37,7 @@ function generateScenario(config) {
   var updateState = false;
 
   // create scenario skeleton
-  var scenario = {"label": config.label, "stepInterval": config.stepInterval, "numOfSteps": config.numOfSteps, "steps": [], "schema": config.schema};
+  var scenario = {"label": config.label, "stepInterval": config.stepInterval, "numOfSteps": config.numOfSteps, "steps": [], "schema": config.schema, "schemaOptions": config.schemaOptions};
 
 // updates to the dataset will take place in this scenario
   if (config.percentageUpdate > 0) {
@@ -50,7 +54,6 @@ function generateScenario(config) {
       } else {
         // a step that doesn't perform updates should just use the dataset from the last step (as no updates to the dataset take place)
         step = _.clone(scenario.steps[(i - 1)]);
-        // this step doesn't perform an update to the dataset
         step.dataset_update = false;
       }
       scenario.steps[i] = step;
@@ -61,8 +64,12 @@ function generateScenario(config) {
 }
 
 /**
-* Generate a step.
+* Generate a step for a scenario.
+* This will update the dataset with a set of generated values.
+* Fields passed in using schemaOptions will not be updated.
 * @param {boolean} onlineState - the network state for this step (online/offline)
+* @param {object} schema - the schema to create a dataset upon
+* @param {object} schemaOptions - options to override fields in a dataset with non-changing ones (such as id's)
 * @return {object} - the step object
 */
 function generateStep(onlineState, schema, schemaOptions) {
@@ -83,7 +90,7 @@ function generateStep(onlineState, schema, schemaOptions) {
 }
 
 /**
-* Get an update/offline state for a step using a specified weighting.
+* Get a dataset update or online state value for a step using a specified weighting passed into the generator.
 * @param {number} percentage - The percentage threshold
 * @return {boolean} - The result for the given state
 */
