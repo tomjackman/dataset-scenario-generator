@@ -1,7 +1,7 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/tommyj1994/dataset-scenario-generator/be70b8b9d1fb05986d9bc883735a8cf29b612829/badge.svg)](https://snyk.io/test/github/tommyj1994/dataset-scenario-generator/be70b8b9d1fb05986d9bc883735a8cf29b612829)
 # Dataset Scenario Generator
 ## Description
-This tools allows you to create **scenarios** and **steps** for datasets using a set of configuration options. Each scenario contains a list of steps that can perform changes on the dataset over the lifetime of the scenario. Datasets are generated using template schemas defined in `schemas/`. These can be configured to specify exact values for certain key fields, eg id fields.
+This tools allows you to create **scenarios** and **steps** for datasets using a set of configuration options. Each scenario contains a list of steps that can perform changes on the dataset over the lifetime of the scenario. Datasets are generated using template schemas defined in `schemas/`. These can be configured to specify exact values for certain key fields, eg id fields, while not so important fields can be assigned randomaly generated values..
 
 ### Scenarios
 A scenario has:
@@ -195,3 +195,7 @@ Sample Output (With 5 steps):
 * Create a function that runs repeatedly on an interval set in the scenario configuration. This will run through the steps in a scenario.
 * At each interval step, update the local dataset to the dataset defined in the scenarios step (if `step.dataset_update` is set to `true`).
 * Add handling for steps that are done offline by checking if `step.online` is set to `false`.
+
+### Creating a Schema for a Dataset
+A new schema can be created under the `schemas/` directory.  A sample schema can be seen in `schemas/sample.js`.
+Schemas should provide default values for all fields. This will allow you to specify certain fields to have set values, whilst allowing other fields to use randomnly generated values. Data is generated using [Chance.js](http://chancejs.com).

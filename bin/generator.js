@@ -1,6 +1,6 @@
 var winston = require('winston');
 var _ = require('underscore');
-// hashing of Datasets
+// hashing of datasets
 var sha1 = require('sha1');
 
 /**
@@ -67,6 +67,7 @@ function generateScenario(config) {
 * Generate a step for a scenario.
 * This will update the dataset with a set of generated values.
 * Fields passed in using schemaOptions will not be updated.
+*
 * @param {boolean} onlineState - the network state for this step (online/offline)
 * @param {object} schema - the schema to create a dataset upon
 * @param {object} schemaOptions - options to override fields in a dataset with non-changing ones (such as id's)
@@ -91,6 +92,7 @@ function generateStep(onlineState, schema, schemaOptions) {
 
 /**
 * Get a dataset update or online state value for a step using a specified weighting passed into the generator.
+*
 * @param {number} percentage - The percentage threshold
 * @return {boolean} - The result for the given state
 */
