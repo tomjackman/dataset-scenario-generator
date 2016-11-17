@@ -188,14 +188,17 @@ Sample Output (With 5 steps):
 }
 ```
 
-### Working With Scenarios
-
-* Create a empty local dataset to be used with sync.
-* Generate a scenario.
-* Create a function that runs repeatedly on an interval set in the scenario configuration. This will run through the steps in a scenario.
-* At each interval step, update the local dataset to the dataset defined in the scenarios step (if `step.dataset_update` is set to `true`).
-* Add handling for steps that are done offline by checking if `step.online` is set to `false`.
-
 ### Creating a Schema for a Dataset
 A new schema can be created under the `schemas/` directory.  A sample schema can be seen in `schemas/sample.js`.
 Schemas should provide default values for all fields. This will allow you to specify certain fields to have set values, whilst allowing other fields to use randomnly generated values. Data is generated using [Chance.js](http://chancejs.com).
+
+### Working With Scenarios
+
+* Set dataset id to be used with sync which will be store the dataset in localstorage.
+* Generate a scenario based off of a schema in `schemas/`.
+* Create a function that runs on an interval set in the scenario configuration. This will run through the steps in a scenario.
+* At each interval step, update the local dataset in localstorage to the dataset defined in the scenarios step (if `step.dataset_update` is set to `true`).
+* Ping the cloud app to state the current step in a scenario.
+* On the cloud app, check that the sha1 of the dataset managed by sync is the same as the one stored in the database for that step.
+* For each step -> If the step performs a dataset update (`step.dataset_update === true`), then overwrite the local dataset in localstorage with the updates.
+* Add handling for offline steps.
