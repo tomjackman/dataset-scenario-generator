@@ -80,7 +80,7 @@ function generateStep(onlineState, schema, schemaOptions) {
   var generatedDataset = require(schemaPath).getSchema(schemaOptions);
 
   // Get a sha1 hash of the dataset
-  var sha1_hash = sha1(JSON.stringify(generatedDataset));
+  var sha1_hash = sha1(generatedDataset);
 
   return {
     "online": onlineState,
