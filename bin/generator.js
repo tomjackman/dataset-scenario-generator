@@ -9,7 +9,6 @@ var sha1 = require('sha1');
 *
 * @param config
 * @param config.label - the name of the scenario
-* @param config.stepInterval - the interval between performing steps (for updating a dataset)
 * @param config.numOfSteps - the number of steps to add to the scenario
 * @param config.schema - the schema to create a dataset upon
 * @param config.schemaOptions - configurations options for the schema
