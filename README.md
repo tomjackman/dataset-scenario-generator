@@ -50,7 +50,6 @@ var schemaOptions = {id: "abcd1234", workflowId:"5678efgh", assignee: "trever"};
 
 // create config for the generator to run off of
 var config = {"label": "test scenario" + Math.random(),
-  "stepInterval": 500,
   "numOfSteps": 2,
   "schema": "workorder",
   "schemaOptions": schemaOptions,
