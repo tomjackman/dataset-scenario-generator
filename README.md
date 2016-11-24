@@ -42,8 +42,13 @@ Then setup the configuration for the generator:
 // choose metadata to apply to the scenario
 var scenarioMetadata = {'name': 'Vitali'};
 
-// choose metadata to apply to each step in a scenario
-var stepMetadata = {'key': 'Hello World'};
+// choose metadata to apply to each step in a scenario as strings or chance.js expressions.
+var stepMetadata = [{"name": "chance.name()"},
+  {"gender": "chance.gender()"},
+  {"age": "chance.age()"},
+  {"website": "chance.url()"},
+  {"online": "chance.weighted(['true', 'false'], [3, 1])"}, // generate a true/false value for an online state with weighting 3 to 1.
+  {"location": "Ireland"}];
 
 // create your overwrite options for the schema (if any)
 var schemaOptions = {id: "abcd1234", workflowId:"5678efgh", assignee: "trever"};
@@ -76,14 +81,14 @@ And the scenario will be generated:
 console.log(JSON.stringify(scenario));
 ```
 
-Sample Output (With 2 steps):
+Sample Output (With 5 steps):
 
 ```
 {
-  "label": "test scenario0.38175405911169946",
-  "numOfSteps": 2,
-  "scenarioMetadata": {
-    "name": "Vitali"
+  "label": "test scenario0.6107732157688588",
+  "numOfSteps": 5,
+  "metadata": {
+    "name": "2765278b"
   },
   "schema": "workorder",
   "schemaOptions": {
@@ -93,46 +98,194 @@ Sample Output (With 2 steps):
   },
   "steps": [
     {
-      "sha1": "13fd878db4ebded0ae13938e0179300d7ba5a845",
+      "sha1": "8cf89eb24a1b970e5759c994046604bef4b3cf4a",
       "dataset": {
         "id": "abcd1234",
         "workflowId": "5678efgh",
         "assignee": "trever",
         "type": "Job Order",
-        "title": "huehwa",
+        "title": "fifvak",
         "status": "New",
-        "startTimestamp": "2050-08-27T21:13:51.473Z",
-        "address": "1019 Osifu Center",
+        "startTimestamp": "2099-10-09T19:43:22.135Z",
+        "address": "1055 Ocza View",
         "location": [
-          -98.4734276,
-          63.1620229
+          -43.6389477,
+          45.3338793
         ],
-        "summary": "Lom webic ha kopjarew tukesifem bawu la be bukfe vivirpod kubud dugonkib komseene su komonafeg cal capogul juafwu duwuggo vemah ebiz veige wucab foof ru da orjewe ofat ta fewetgu."
+        "summary": "Uzejlaw bar gempi sevaj ket ceh obselvuz di me zeaj muvomiw deboned aki ulaj cenif nocihcew rocvas wen wuvvomhi fum ubihujdaw niuso datunif iho kape mub naviskeg ewiussew bosvu riulno."
       },
-      "metadata": {
-        "key": "Hello World"
-      }
+      "metadata": [
+        {
+          "name": "Marc Pena"
+        },
+        {
+          "gender": "Female"
+        },
+        {
+          "age": 64
+        },
+        {
+          "website": "http://bak.nr/hogaho"
+        },
+        {
+          "online": "false"
+        },
+        {
+          "location": "Ireland"
+        }
+      ]
     },
     {
-      "sha1": "4adffc5dc3e4456b1f62041f989762df4d7e3190",
+      "sha1": "849a0182fee9b76445d5c6c7b541090d27dd403b",
       "dataset": {
         "id": "abcd1234",
         "workflowId": "5678efgh",
         "assignee": "trever",
         "type": "Job Order",
-        "title": "voksanem",
+        "title": "jada",
         "status": "New",
-        "startTimestamp": "2026-04-24T02:15:57.649Z",
-        "address": "1476 Hivo Way",
+        "startTimestamp": "2038-09-21T09:26:37.033Z",
+        "address": "109 Ahibup Manor",
         "location": [
-          136.5620996,
-          -8.1675979
+          44.0001227,
+          76.2673175
         ],
-        "summary": "Nenuwna ew juwfav aramaja uga ono neppa gos dero ha idcoz loravgu je ulpamok sereru co ru figenaz nuudrid kiflufi ce cenke guwwifpip ibu gih ul molabse hopoj bucfihef je."
+        "summary": "Serovus tukuba enera wefwe oliici tosiwe hotut danofjek pilrukike poammiz zeto vu ovukasenu gajuko tiropaj ecfeweg garver giawe vaepduw ad arusovfuc kiltilaz wi cuzis jopodi nev lehe ahdo nabge irmiso."
       },
-      "metadata": {
-        "key": "Hello World"
-      }
+      "metadata": [
+        {
+          "name": "Mina Marshall"
+        },
+        {
+          "gender": "Female"
+        },
+        {
+          "age": 37
+        },
+        {
+          "website": "http://bicetar.kg/sidnen"
+        },
+        {
+          "online": "true"
+        },
+        {
+          "location": "Ireland"
+        }
+      ]
+    },
+    {
+      "sha1": "d57dba97eae5190661177c206d49fb5cfcc12fc8",
+      "dataset": {
+        "id": "abcd1234",
+        "workflowId": "5678efgh",
+        "assignee": "trever",
+        "type": "Job Order",
+        "title": "vupcutat",
+        "status": "New",
+        "startTimestamp": "2094-04-19T02:24:12.561Z",
+        "address": "687 Werso Glen",
+        "location": [
+          178.8252358,
+          -27.5852798
+        ],
+        "summary": "Po bof sodut cokesul powo hohkun ij jovtil bosuzoz rustul jic ubosiw feb bu wulwuzpeb nur jufe oc jebce keh amuse ev ipo ke uhmiva fojdunuz ko vug de rudfusdi."
+      },
+      "metadata": [
+        {
+          "name": "Edwin Lucas"
+        },
+        {
+          "gender": "Male"
+        },
+        {
+          "age": 44
+        },
+        {
+          "website": "http://jesap.net/omavow"
+        },
+        {
+          "online": "true"
+        },
+        {
+          "location": "Ireland"
+        }
+      ]
+    },
+    {
+      "sha1": "29205653b9745bad3c195422badbbb428d8b6407",
+      "dataset": {
+        "id": "abcd1234",
+        "workflowId": "5678efgh",
+        "assignee": "trever",
+        "type": "Job Order",
+        "title": "la",
+        "status": "New",
+        "startTimestamp": "2049-12-15T03:01:24.323Z",
+        "address": "576 Nogmov Circle",
+        "location": [
+          -71.4454799,
+          -55.2485873
+        ],
+        "summary": "Lupjaege tupoovo ecdis neebohos sid sunefpo or safug fewibe vi vahoguce vecpowu aspamsa wili votoguj wuk suj rot usvepuz ka fozpa veeso sidwok ezgo ne hedekih gupsijnaz gi ku luntiral."
+      },
+      "metadata": [
+        {
+          "name": "Roxie Moody"
+        },
+        {
+          "gender": "Male"
+        },
+        {
+          "age": 41
+        },
+        {
+          "website": "http://pasotha.pe/mov"
+        },
+        {
+          "online": "true"
+        },
+        {
+          "location": "Ireland"
+        }
+      ]
+    },
+    {
+      "sha1": "85fc75b0cfb0ff9b6d8b233cc934c64a20c9a0c2",
+      "dataset": {
+        "id": "abcd1234",
+        "workflowId": "5678efgh",
+        "assignee": "trever",
+        "type": "Job Order",
+        "title": "jez",
+        "status": "New",
+        "startTimestamp": "2098-11-01T09:20:01.730Z",
+        "address": "1413 Tadcu Ridge",
+        "location": [
+          148.8799697,
+          27.6835414
+        ],
+        "summary": "Apveibu nicadu imospi calej caliv ligup kej viz je jibtabpof hu geri bibmivuna ber ku evuha pobo mafcu pujjewa locti ezoza ajikafijo mudim ri puwe ifa fuk puswolew saigi pugipupim."
+      },
+      "metadata": [
+        {
+          "name": "Jacob Ruiz"
+        },
+        {
+          "gender": "Female"
+        },
+        {
+          "age": 53
+        },
+        {
+          "website": "http://he.rs/fid"
+        },
+        {
+          "online": "true"
+        },
+        {
+          "location": "Ireland"
+        }
+      ]
     }
   ]
 }
