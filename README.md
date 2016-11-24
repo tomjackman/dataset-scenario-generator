@@ -40,22 +40,28 @@ var generator = require('dataset-scenario-generator');
 Then setup the configuration for the generator:
 ```
 // choose metadata to apply to the scenario
-var scenarioMetadata = {'name': 'Vitali'};
+var scenarioMetadata = {'name': 'test1'};
+```
 
-// choose metadata to apply to each step in a scenario as strings or chance.js expressions.
+Choose metadata to apply to each step in a scenario as strings or chance.js expressions.
+```
 var stepMetadata = [{"name": "chance.name()"},
   {"gender": "chance.gender()"},
   {"age": "chance.age()"},
   {"website": "chance.url()"},
   {"online": "chance.weighted(['true', 'false'], [3, 1])"}, // generate a true/false value for an online state with weighting 3 to 1.
   {"location": "Ireland"}];
+```
 
-// create your overwrite options for the schema (if any)
+Create your overwrite options for the schema (if any). Useful for specifying specific user id's to use in each step.
+```
 var schemaOptions = {id: "abcd1234", workflowId:"5678efgh", assignee: "trever"};
+```
 
-// create config for the generator to run off of
-var config = {"label": "test scenario" + Math.random(),
-  "numOfSteps": 2,
+Create config for the generator to run off of.
+```
+var config = {"label": "test scenario",
+  "numOfSteps": 5,
   "schema": "workorder",
   "schemaOptions": schemaOptions,
   "scenarioMetadata": scenarioMetadata,
