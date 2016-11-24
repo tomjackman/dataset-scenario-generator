@@ -1,5 +1,7 @@
 var winston = require('winston');
 var _ = require('underscore');
+var Chance = require('chance');
+var chance = new Chance();
 // hashing of datasets
 var sha1 = require('sha1');
 
@@ -43,12 +45,7 @@ function generateScenario(config) {
 // updates to the dataset will take place in this scenario
   for(var i = 0; i < config.numOfSteps; i++) {
     var step = generateStep(config.schema, config.schemaOptions);
-
-      // apply any metadata that was specified for each step
-    if (config.stepMetadata) {
-      step.metadata = config.stepMetadata;
-    }
-
+    step.metadata = applyStepMetadata(config.stepMetadata);
     scenario.steps[i] = step;
   }
 
@@ -80,8 +77,52 @@ function generateStep(schema, schemaOptions) {
   };
 }
 
+/**
+* Apply metadata to a step.
+* If chance.js were defined, these will be evaluated and applied in the metadata.
+*
+* @param {object} stepMetadata - the step metadata to process
+* @return {array} - the array of metadata
+*/
+function applyStepMetadata(stepMetadata) {
+  var appliedStepMetadata = [];
+  var step;
+
+  // process thorugh the metadata list
+  for (var i = 0; i < stepMetadata.length; i++) {
+    step = stepMetadata[i];
+    var allPropertyNames = Object.keys(step);
+
+    // process through the unknown json object keys
+    for (var j = 0; j < allPropertyNames.length; j++) {
+      var name = allPropertyNames[j];
+      var value = step[name];
+
+      // check if chance expression is given
+      if (value.indexOf("chance.") !== -1) {
+        winston.debug('Treating', value, 'as chance.js expression');
+        try {
+          // evaluate the expression as js
+          value = eval(value);
+        } catch (e) {
+          if (e instanceof SyntaxError) {
+            winston.error(e.message);
+          }
+        }
+      }
+    }
+    // apply the metadata (chance.js expression result or not)
+    appliedStepMetadata[i] = {};
+    appliedStepMetadata[i][name] = value;
+  }
+  winston.debug('Created Step Metadata', appliedStepMetadata);
+  return appliedStepMetadata;
+}
+
 
 module.exports = {
   generateStep: generateStep,
-  generateScenario: generateScenario
+  generateScenario: generateScenario,
+  applyStepMetadata: applyStepMetadata,
+  chance: chance
 };
