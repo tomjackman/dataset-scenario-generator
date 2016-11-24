@@ -1,7 +1,7 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/tommyj1994/dataset-scenario-generator/be70b8b9d1fb05986d9bc883735a8cf29b612829/badge.svg)](https://snyk.io/test/github/tommyj1994/dataset-scenario-generator/be70b8b9d1fb05986d9bc883735a8cf29b612829)
 # Dataset Scenario Generator
 ## Description
-This tools allows you to create **scenarios** and **steps** for datasets using a set of configuration options. Each scenario contains a list of steps that can perform changes on the dataset over the lifetime of the scenario. Datasets are generated using template schemas defined in `schemas/`. These can be configured to specify exact values for certain key fields, eg id fields, while not so important fields can be assigned randomaly generated values. You can also pass in any metadata you want to a scenario and also for each step in a scenario.
+This tool allows you to create **scenarios** and **steps** for datasets using a set of configuration options. Each scenario contains a list of steps that can perform changes on the dataset over the lifetime of the scenario. Datasets are generated using template schemas defined in `schemas/`. These can be configured to specify exact values for certain key fields, eg id fields, while not so important fields can be assigned randomaly generated values. You can also pass in any metadata you want to a scenario and also for each step in a scenario.
 
 ### Scenarios
 A scenario has:
